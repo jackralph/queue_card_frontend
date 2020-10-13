@@ -128,7 +128,7 @@
 
 @font-face {
   font-family: "Metropolis";
-  src: url("../../fonts/Metropolis-Regular.woff") format("woff");
+  src: url("../../fonts/Metropolis-Bold.woff") format("woff");
   font-weight: normal;
   font-display: swap;
   font-style: normal;
@@ -2252,7 +2252,7 @@ figure + .ld-cart-product-details {
 
 .lqd-main-footer-default {
 padding: 30px 20px 30px 20px;
-  background-color: #27007096;
+  background-color: #3800a0d2;
   color: #3b3b3b;
   display: flex;
   justify-content: space-between;
@@ -29286,7 +29286,7 @@ body.search .no-results .search-form input[type="submit"] {
   .lqd-promo-reverse:not(.lqd-promo-alt) .lqd-promo-content {
     -webkit-box-align: end;
     align-items: flex-end;
-    text-align: right;
+    /* text-align: right; */
   }
 }
 @media screen and (min-width: 1200px) and (max-width: 1580px) {
