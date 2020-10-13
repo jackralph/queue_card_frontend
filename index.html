@@ -12,11 +12,11 @@
 
 	<title>Queue Card</title>
 
-	<link rel="stylesheet" type="text/css" href="/vendors/liquid-icon/liquid-icon.min.css" />
-	<link rel="stylesheet" type="text/css" href="/vendors/font-awesome/css/font-awesome.min.css" />
-	<link rel="stylesheet" type="text/css" href="/css/theme-vendors.min.css" />
-	<link rel="stylesheet" type="text/css" href="/css/theme.css" />
-	<link rel="stylesheet" type="text/css" href="/css/themes/wave.css" />
+	<link rel="stylesheet" type="text/css" href="./public/vendors/liquid-icon/liquid-icon.min.css" />
+	<link rel="stylesheet" type="text/css" href="./public/vendors/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="./public/css/theme-vendors.min.css" />
+	<link rel="stylesheet" type="text/css" href="./public/css/theme.css" />
+	<link rel="stylesheet" type="text/css" href="./public/css/themes/wave.css" />
 
 	<!-- Head Libs -->
 	<script async src="vendors/modernizr.min.js"></script>
@@ -41,15 +41,17 @@
 								<div class="navbar-header">
 									<a class="navbar-brand" href="/" rel="home">
 										<span class="navbar-brand-inner">
-											<img class="logo-dark" src="/queue_card_assets/BlackQueueCard.png"
+											<img class="logo-dark" src="./public/queue_card_assets/BlackQueueCard.png"
 												alt="Ave HTML Template">
-											<img class="logo-light" src="/queue_card_assets/WhiteQueueCard.png"
+											<img class="logo-light" src="./public/queue_card_assets/WhiteQueueCard.png"
 												alt="Ave HTML Template">
-											<img class="logo-sticky" src="/queue_card_assets/BlackQueueCard.png"
+											<img class="logo-sticky" src="./public/queue_card_assets/BlackQueueCard.png"
 												alt="Ave HTML Template">
 											<img class="mobile-logo-default" style="height: 2em;"
-												src="/queue_card_assets/BlackQueueCard.png" alt="Ave HTML Template">
-											<img class="logo-default" src="/queue_card_assets/WhiteQueueCard.png"
+												src="./public/queue_card_assets/BlackQueueCard.png"
+												alt="Ave HTML Template">
+											<img class="logo-default"
+												src="./public/queue_card_assets/WhiteQueueCard.png"
 												alt="Ave HTML Template">
 										</span>
 									</a>
@@ -155,7 +157,8 @@
 									</div><!-- /.lqd-promo-dynamic-shape -->
 
 									<div class="lqd-promo-img">
-										<img src="/queue_card_assets/Card1.png" alt="Queue Card" style="z-index: 0;">
+										<img src="./public/queue_card_assets/Card1.png" alt="Queue Card"
+											style="z-index: 0;">
 									</div><!-- /.lqd-promo-img -->
 
 									<div class="lqd-promo-content" data-custom-animations="true"
@@ -229,7 +232,7 @@
 									</div><!-- /.lqd-promo-dynamic-shape -->
 
 									<div class="lqd-promo-img">
-										<img src="/queue_card_assets/Card2.png" alt="Queue Card Magic"
+										<img src="./public/queue_card_assets/Card2.png" alt="Queue Card Magic"
 											style="z-index: 0;">
 									</div><!-- /.lqd-promo-img -->
 
@@ -251,7 +254,11 @@
 											tricks for them, but for you, the magic lies in the ability to change the
 											content of your Queue Cards in an easy, stylish way whenever you like - even
 											after you’ve given them to your clients. Penn and Teller? Never heard of
-											‘em.</p>
+											‘em. <br><br>
+											<a href="#why_it_works" class="text-white"
+												style="border: solid; border-radius: 25pt; padding: 10px;"><i
+													class=" fa fa-arrow-down">
+												</i> See why it works </a></p>
 									</div><!-- /.lqd-promo-content -->
 
 								</div><!-- /.lqd-promo-inner -->
@@ -276,10 +283,10 @@
 
 				</div><!-- /.lqd-particles-bg-wrap -->
 
-				<div class="container" style="margin-top: 200px; margin-bottom: 0px;">
+				<div class="container">
 					<div class="row">
 
-						<div class="lqd-column col-md-9 col-md-offset-2">
+						<div class="lqd-column col-md-9 col-md-offset-1">
 
 							<div class="lqd-promo-wrap text-white">
 								<div class="lqd-promo-inner">
@@ -296,8 +303,8 @@
 										</svg>
 									</div><!-- /.lqd-promo-dynamic-shape -->
 
-									<div class="lqd-promo-img">
-										<img src="/queue_card_assets/Card3.png" alt="Queue Card Pocket"
+									<div id="why_it_works" class="lqd-promo-img">
+										<img src="./public/queue_card_assets/Card3.png" alt="Queue Card Pocket"
 											style="z-index: 0;">
 									</div><!-- /.lqd-promo-img -->
 
@@ -317,7 +324,12 @@
 											clients just don’t care as much about our marketing material as we do. It’s
 											an oversight that turns our efforts into a burden from the outset, but with
 											a Queue Card, your information is always a convenience. Pick it up, tap, put
-											it away. Beats lugging a load of documents around, I reckon.</p>
+											it away. Beats lugging a load of documents around, I reckon.<br><br>
+											<a href="#who_its_worked_for" class="text-white"
+												style="border: solid; border-radius: 25pt; padding: 10px;"><i
+													class=" fa fa-arrow-down">
+												</i> See who it's worked for </a>
+										</p>
 									</div><!-- /.lqd-promo-content -->
 
 								</div><!-- /.lqd-promo-inner -->
@@ -329,7 +341,8 @@
 				</div><!-- /.container -->
 
 			</section>
-			<section class="vc_row fullheight d-flex flex-wrap align-items-center py-5 py-md-0 bg-gigas">
+			<section id="who_its_worked_for"
+				class="vc_row fullheight d-flex flex-wrap align-items-center py-5 py-md-0 bg-gigas">
 				<div class="container">
 					<div class="row">
 
@@ -365,7 +378,7 @@
 											<figure class="liquid-promo-img">
 												<div style="position: relative; text-align: center;">
 
-													<img src="/queue_card_assets/CardOutlineWhite.png"
+													<img src="./public/queue_card_assets/CardOutlineWhite.png"
 														alt="Card Outline">
 													<div
 														style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white;">
@@ -387,7 +400,7 @@
 											<figure class="liquid-promo-img">
 												<div style="position: relative; text-align: center;">
 
-													<img src="/queue_card_assets/CardOutlineWhite.png"
+													<img src="./public/queue_card_assets/CardOutlineWhite.png"
 														alt="Card Outline">
 													<div
 														style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white;">
@@ -399,6 +412,7 @@
 
 										</article>
 
+
 									</div><!-- /.col-md-4 -->
 
 									<div class="lqd-column col-md-4 masonry-item">
@@ -409,7 +423,7 @@
 											<figure class="liquid-promo-img">
 												<div style="position: relative; text-align: center;">
 
-													<img src="/queue_card_assets/CardOutlineWhite.png"
+													<img src="./public/queue_card_assets/CardOutlineWhite.png"
 														alt="Card Outline">
 													<div
 														style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white;">
@@ -418,6 +432,7 @@
 												</div>
 											</figure>
 										</article>
+
 
 									</div><!-- /.col-md-4 -->
 
@@ -428,6 +443,7 @@
 						</div><!-- /.col-md-12 -->
 
 					</div><!-- /.row -->
+
 				</div><!-- /.container -->
 			</section><!-- /.vc_row -->
 			<section class="vc_row fullheight d-flex flex-wrap align-items-center py-5 py-md-0 bg-gigas">
@@ -462,7 +478,7 @@
 
 									<h2 class="text-white">1 to 500 Cards</h2>
 									<p class="pricing" style="color: #d54be7;">
-										£1 <small class="text-white">Per Card + Shipping</small>
+										£1 <small class="text-white">(Per Card + Shipping)</small>
 									</p>
 
 								</div><!-- /.pricing-table-head -->
@@ -492,7 +508,7 @@
 										> 500 Cards </h2>
 									<p class="pricing" style="color: #d54be7;">
 										Pennies
-										<small class="text-white">Per Card + Shipping</small>
+										<small class="text-white">(Per Card + Shipping)</small>
 									</p>
 
 								</div><!-- /.pricing-table-head -->
@@ -559,7 +575,8 @@
 									</div><!-- /.lqd-promo-dynamic-shape -->
 
 									<div class="lqd-promo-img img-4">
-										<img src="/queue_card_assets/Card4.png" alt="Queue Card" style="z-index: 0;">
+										<img src="./public/queue_card_assets/Card4.png" alt="Queue Card"
+											style="z-index: 0;">
 									</div><!-- /.lqd-promo-img -->
 
 									<div class="lqd-promo-content" data-custom-animations="true"
@@ -594,7 +611,7 @@
 		</main><!-- /#content.content -->
 		<footer class="lqd-main-footer-default">
 			<div>
-				<img src="/queue_card_assets/WhiteQueueCard.png" alt="White Queue Card" style="height: 1.5em;">
+				<img src="./public/queue_card_assets/WhiteQueueCard.png" alt="White Queue Card" style="height: 1.5em;">
 			</div>
 			<div>
 				<ul class="social-icon scheme-white social-icon-md">
@@ -611,10 +628,10 @@
 
 	</div><!-- /#wrap -->
 
-	<script src="/vendors/jquery.min.js"></script>
-	<script src="/js/theme-vendors.js"></script>
-	<script src="/vendors/pagePiling/dist/jquery.pagepiling.min.js"></script>
-	<script src="/js/theme.min.js"></script>
+	<script src="./public/vendors/jquery.min.js"></script>
+	<script src="./public/js/theme-vendors.js"></script>
+	<script src="./public/vendors/pagePiling/dist/jquery.pagepiling.min.js"></script>
+	<script src="./public/js/theme.min.js"></script>
 
 </body>
 
