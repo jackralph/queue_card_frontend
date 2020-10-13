@@ -2251,11 +2251,11 @@ figure + .ld-cart-product-details {
 }
 
 .lqd-main-footer-default {
-  padding-bottom: 30px;
-  padding-top: 30px;
-  margin-top: 70px;
-  background-color: #f2f2f2;
+padding: 30px 20px 30px 20px;
+  background-color: #27007096;
   color: #3b3b3b;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* 1.4. Titlebar */
@@ -8841,6 +8841,7 @@ textarea:focus ~ .liquid-cl-3:after,
 .liquid-lp-media img {
   width: 100%;
 }
+
 .liquid-lp-media > a {
   display: block;
   position: relative;
@@ -29357,6 +29358,9 @@ body.search .no-results .search-form input[type="submit"] {
   .lqd-promo-content h2 {
     margin: 0 0 0.25em;
     font-size: 62px;
+    text-align: center;
+    justify-content: center;
+    margin: auto;
   }
 }
 @media screen and (max-width: 767px) {
