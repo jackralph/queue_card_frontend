@@ -3769,6 +3769,12 @@ padding: 30px 20px 30px 20px;
   text-align: left;
 }
 
+@media screen and (max-width: 1200px) {
+  .col-md-offset-3 {
+    margin-left: 0;
+  }
+}
+
 /* Icon Shapes */
 .btn-icon-solid .btn-icon,
 .btn-icon-bordered .btn-icon {
@@ -29504,3 +29510,4 @@ body.search .no-results .search-form input[type="submit"] {
     width: calc(100vw - 40px) !important;
   }
 }
+
