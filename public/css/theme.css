@@ -29511,3 +29511,36 @@ body.search .no-results .search-form input[type="submit"] {
   }
 }
 
+/*
+  5. ADDITIONALS
+*/
+/* 5.5. Sign-up flow */
+
+.sign-up img {
+  height: 10em;
+}
+
+.sign-up .sign-up-order {
+  margin-top: -150px;
+}
+
+@media screen and (max-width: 1199px) {
+  .sign-up .sign-up-order {
+    margin-top: 0px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .navbar-brand img {
+    height: 1.5em;
+  }
+  .sign-up h2 {
+    font-size: 1.2em;
+  }
+  .sign-up img {
+    height: 8em;
+  }
+  .sign-up h4 {
+    font-size: 0.8em;
+  }
+}
