@@ -17,4 +17,8 @@ app.get("/terms_and_conditions", (req, res) => {
     res.sendFile(path.join(__dirname, "public/views/terms_and_conditions.html"))
 })
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, "public/views/404.html"));
+});
+
 app.listen(3000);
