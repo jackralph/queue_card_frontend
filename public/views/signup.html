@@ -27,6 +27,7 @@
 
 <body class="lqd-stack-buttons-style-2 header-style-fullscreen">
 
+
 	<div id="wrap">
 
 		<header class="main-header header-fullscreen header-fullscreen-style-1 main-header-overlay">
@@ -57,7 +58,7 @@
 		</header><!-- /.main-header -->
 
 		<main id="content" class="content bg-black" data-liquid-stack="true"
-			data-stack-options='{"navigation":false,"prevNextButtons":true,"pageNumber":false,"prevNextLabels":{"prev":"Previous","next":"Next"},"effect":"fadeScale", "disableOnMobile": false}'>
+			data-stack-options='{"navigation":true,"prevNextButtons":true,"pageNumber":false,"prevNextLabels":{"prev":"Previous","next":"Next"},"effect":"fadeScale", "disableOnMobile": false}'>
 
 			<section class="vc_row fullheight d-flex flex-wrap align-items-center py-5 py-md-0 bg-gigas">
 
@@ -369,6 +370,8 @@
 												alt="Card Outline"
 												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
 										</div>
+										<p class="order-quantity" class="text-white" style="margin: 0px;"></p>
+
 
 									</div><!-- /.pricing-table-body -->
 
@@ -473,6 +476,8 @@
 												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
 										</div>
 										<p class="order-quantity" class="text-white" style="margin: 0px;"></p>
+										<p class="text-white eStore" style="margin: 0px;"></p>
+										<p class="text-white Payments" style="margin: 0px;"></p>
 
 									</div><!-- /.pricing-table-body -->
 
@@ -509,8 +514,9 @@
 
 												<a href="#"><i class="fa fa-question-circle text-white"></i></a>
 											</h4>
-											<a href="#" class="text-white"
-												style="border: solid; border-radius: 25pt; padding: 10px;">+
+											<a id="eStore" type="button" onclick="addon(this.name)" name="eStore"
+												class="text-white"
+												style="border: solid; border-radius: 25pt; padding: 10px; cursor: pointer;">+
 												£5 p/m
 											</a>
 
@@ -520,12 +526,31 @@
 												Built-in Payments
 												<a href="#"><i class="fa fa-question-circle text-white"></i></a>
 											</h4>
-											<a href="#" class="text-white"
-												style="border: solid; border-radius: 25pt; padding: 10px;">+
+											<a id="Payments" type="button" onclick="addon(this.name)" name="Payments"
+												class="text-white"
+												style="border: solid; border-radius: 25pt; padding: 10px; cursor: pointer;">+
 												£5 p/m
 											</a>
-
 										</div>
+										<script>
+											const addon = (elementName) => {
+
+												let addon = document.getElementsByClassName(elementName);
+												let button = document.getElementById(elementName);
+												if (addon[0].innerHTML.length === 0) {
+													for (let element of addon) {
+														element.innerHTML = `+ £5 Built-in ${elementName}`
+													}
+													button.innerHTML = "Remove <i class='fa fa-minus-circle'/>";
+												} else {
+													for (let element of addon) {
+														element.innerHTML = ""
+													}
+													button.innerHTML = "+ £5 p/m";
+												}
+
+											}
+										</script>
 									</div><!-- /.pricing-table-body -->
 								</div><!-- /.pricing-table -->
 							</div><!-- /.col-lg-4 col-md-12 -->
@@ -573,7 +598,8 @@
 												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
 										</div>
 										<p class="order-quantity" class="text-white" style="margin: 0px;"></p>
-										<p class="text-white" style="margin: 0px;">eStore +£5 p/m</p>
+										<p class="text-white eStore" style="margin: 0px;"></p>
+										<p class="text-white Payments" style="margin: 0px;"></p>
 
 									</div><!-- /.pricing-table-body -->
 
@@ -664,7 +690,8 @@
 												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
 										</div>
 										<p class="order-quantity" class="text-white" style="margin: 0px;"></p>
-										<p class="text-white" style="margin: 0px;">eStore +£5 p/m</p>
+										<p class="text-white eStore" style="margin: 0px;"></p>
+										<p class="text-white Payments" style="margin: 0px;"></p>
 										<p class="text-white" style="margin: 0px;">£580 today <small>including
 												shipping</small></p>
 										<p class="text-white" style="margin: 0px;">£5 due next month</p>
@@ -967,26 +994,41 @@
 
 									<div style="text-align: center; position: relative; z-index: 0; width: 100%;">
 										<div style="padding: 5px;">
-											<a href="#">
+											<a type="button" onclick="handlePayment()" style="cursor: pointer;"
+												disabled>
 												<h3 class="text-white">Credit/Debit Card</h3>
 											</a>
-											<a href="#">
+											<a type="button" onclick="handlePayment()" style="cursor: pointer;">
 												<h3 class="text-white">
 													<i class="fa fa-apple text-white"></i> Pay
 												</h3>
 											</a>
-											<a href="#">
+											<a type="button" onclick="handlePayment()" style="cursor: pointer;">
 												<h3 class="text-white">
 													<i class="fa fa-paypal text-white"></i> PayPal
 												</h3>
 											</a>
-											<a href="#">
+											<a type="button" onclick="handlePayment()" style="cursor: pointer;">
 												<h3 class="text-white">
 													<i class="fa fa-google text-white"></i> Pay
 												</h3>
 											</a>
+											<p id="terms-warning" class="text-white">You must agree to the <a
+													href="#Section-7">Terms and
+													Conditions </a>before proceeding with your payment.</p>
+
 										</div>
 									</div>
+									<script>
+										const handlePayment = () => {
+											let termsAgreedCheck = document.getElementById("terms");
+											if (termsAgreedCheck.checked) {
+												console.log("proceed with payment")
+											} else {
+												alert("You must agree to the terms and conditions")
+											}
+										}
+									</script>
 								</div>
 
 
