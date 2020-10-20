@@ -104,7 +104,7 @@
 										top: 50%;
 										left: 50%;
 										transform: translate(-50%, -50%);">
-										<h3 class="text-white">
+										<h3 id="upload-message-front" class="text-white">
 											Click to Upload
 										</h3>
 									</div>
@@ -118,10 +118,14 @@
 											let result = fileReader.result;
 											let cardFront = document.getElementById("card-front");
 											let smallCardsFront = document.getElementsByClassName("card-front-small");
+											let uploadMessageFront = document.getElementById("upload-message-front")
+											let hintMessageFront = document.getElementById("hint-message-front")
 											for (let element of smallCardsFront) {
 												element.style.backgroundImage = `url(${result})`;
 											};
 											cardFront.style.backgroundImage = `url(${result})`;
+											uploadMessageFront.innerHTML = "Uploaded!"
+											hintMessageFront.innerHTML = "Click the <span style='text-decoration: underline;'>right</span> arrow or  <span style='text-decoration: underline;'>scroll</span> to view."
 										}
 									}
 								</script>
@@ -135,7 +139,7 @@
 						<div style="width: 50%; margin: auto;">
 
 							<div style="margin-top: 20px;">
-								<h4 class="text-white"
+								<h4 id="hint-message-front" class="text-white"
 									style="margin-top: auto; margin-bottom: auto; text-align: center;">Upload the <span
 										style="text-decoration: underline;">front</span>
 									of your card. <br>
@@ -236,7 +240,7 @@
 										style="margin: auto; cursor: pointer;">
 									<div
 										style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-										<h3 class="text-white">
+										<h3 id="upload-message-back" class="text-white">
 											Click to Upload
 										</h3>
 									</div>
@@ -250,10 +254,14 @@
 											let result = fileReader.result;
 											let cardBack = document.getElementById("card-back");
 											let smallCardsBack = document.getElementsByClassName("card-back-small");
+											let uploadMessageBack = document.getElementById("upload-message-back")
+											let hintMessageBack = document.getElementById("hint-message-back")
 											for (let element of smallCardsBack) {
 												element.style.backgroundImage = `url(${result})`;
 											};
 											cardBack.style.backgroundImage = `url(${result})`;
+											uploadMessageBack.innerHTML = "Uploaded!"
+											hintMessageBack.innerHTML = "Click the <span style='text-decoration: underline;'>right</span> arrow or  <span style='text-decoration: underline;'>scroll</span> to view."
 										}
 									}
 								</script>
@@ -267,7 +275,7 @@
 						<div style="width: 50%; margin: auto;">
 
 							<div style="margin-top: 20px;">
-								<h4 class="text-white"
+								<h4 id="hint-message-back" class="text-white"
 									style="margin-top: auto; margin-bottom: auto; text-align: center;">Upload
 									the <span style="text-decoration: underline;">back</span>
 									of your card. <br>
@@ -391,17 +399,27 @@
 
 										</h2>
 										<div class="slide-container">
-											<input type="range" min="100" max="10000" value="500" class="slider"
-												id="slider" step="10" style="cursor: pointer;">
+											<input onchange="updateQuantity()" type="range" min="100" max="10000"
+												value="500" class="slider" id="slider" step="10"
+												style="cursor: pointer;">
 										</div>
-										<script type=" text/javascript">
-					const slider = document.getElementById("slider");
-					const value = document.getElementById("quantity");
-					value.innerHTML = slider.value;
-					slider.oninput = function () {
-					value.innerHTML = this.value;
-					}
-					</script>
+										<script>
+											const slider = document.getElementById("slider");
+											const value = document.getElementById("quantity");
+											const orderQuantity = document.getElementsByClassName("order-quantity");
+											value.innerHTML = slider.value;
+											slider.oninput = function () {
+												value.innerHTML = this.value;
+											}
+										</script>
+										<script>
+											const updateQuantity = () => {
+												let slider = document.getElementById("slider");
+												for (let element of orderQuantity) {
+													element.innerHTML = `${slider.value} cards`
+												}
+											}
+										</script>
 									</div><!-- /.pricing-table-head -->
 
 									<div class="pricing-table-body" style="padding-top: 20px;">
@@ -454,7 +472,7 @@
 												alt="Card Outline"
 												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
 										</div>
-										<p class="text-white" style="margin: 0px;">500 cards</p>
+										<p class="order-quantity" class="text-white" style="margin: 0px;"></p>
 
 									</div><!-- /.pricing-table-body -->
 
@@ -554,7 +572,7 @@
 												alt="Card Outline"
 												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
 										</div>
-										<p class="text-white" style="margin: 0px;">500 cards</p>
+										<p class="order-quantity" class="text-white" style="margin: 0px;"></p>
 										<p class="text-white" style="margin: 0px;">eStore +£5 p/m</p>
 
 									</div><!-- /.pricing-table-body -->
@@ -645,7 +663,7 @@
 												alt="Card Outline"
 												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
 										</div>
-										<p class="text-white" style="margin: 0px;">500 cards</p>
+										<p class="order-quantity" class="text-white" style="margin: 0px;"></p>
 										<p class="text-white" style="margin: 0px;">eStore +£5 p/m</p>
 										<p class="text-white" style="margin: 0px;">£580 today <small>including
 												shipping</small></p>
