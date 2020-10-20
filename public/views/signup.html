@@ -95,8 +95,8 @@
 							<div class="lqd-promo-img" style="margin: auto; position: relative;
 							text-align: center;">
 
-								<label for="image" style="cursor: pointer;">
-									<input type="file" name="image" id="image" style="display: none;"
+								<label for="image-front" style="cursor: pointer;">
+									<input type="file" name="image-front" id="image-front" style="display: none;"
 										onchange="uploadFrontImage(this)" />
 									<img src=".//queue_card_assets/CardOutlineWhite.png" alt="Card Outline"
 										style="margin: auto; cursor: pointer;">
@@ -117,6 +117,10 @@
 										fileReader.onload = function () {
 											let result = fileReader.result;
 											let cardFront = document.getElementById("card-front");
+											let smallCardsFront = document.getElementsByClassName("card-front-small");
+											for (let element of smallCardsFront) {
+												element.style.backgroundImage = `url(${result})`;
+											};
 											cardFront.style.backgroundImage = `url(${result})`;
 										}
 									}
@@ -225,19 +229,34 @@
 							<div class="lqd-promo-img" style="margin: auto; position: relative;
 							text-align: center;">
 
-								<a href="#">
-
-									<img src="/queue_card_assets/CardOutlineWhite.png" alt="Promo"
-										style="margin: auto;">
-									<div style="position: absolute;
-										top: 50%;
-										left: 50%;
-										transform: translate(-50%, -50%);">
+								<label for="image-back" style="cursor: pointer;">
+									<input type="file" name="image-back" id="image-back" style="display: none;"
+										onchange="uploadBackImage(this)" />
+									<img src=".//queue_card_assets/CardOutlineWhite.png" alt="Card Outline"
+										style="margin: auto; cursor: pointer;">
+									<div
+										style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
 										<h3 class="text-white">
 											Click to Upload
 										</h3>
 									</div>
-								</a>
+								</label>
+								<script>
+									const uploadBackImage = (input) => {
+										let fileObject = input.files[0];
+										let fileReader = new FileReader();
+										fileReader.readAsDataURL(fileObject);
+										fileReader.onload = function () {
+											let result = fileReader.result;
+											let cardBack = document.getElementById("card-back");
+											let smallCardsBack = document.getElementsByClassName("card-back-small");
+											for (let element of smallCardsBack) {
+												element.style.backgroundImage = `url(${result})`;
+											};
+											cardBack.style.backgroundImage = `url(${result})`;
+										}
+									}
+								</script>
 
 							</div>
 
@@ -291,15 +310,9 @@
 								</svg>
 							</div><!-- /.lqd-promo-dynamic-shape -->
 
-							<div class="lqd-promo-img" style="margin: auto; position: relative;
-							text-align: center;">
-
-								<a href="#">
-
-									<img src=".//queue_card_assets/CardOutlineWhite.png" alt="Promo"
-										style="margin: auto;">
-								</a>
-
+							<div class="lqd-promo-img" style="margin: auto; position: relative; text-align: center;">
+								<img id="card-back" src="queue_card_assets/CardOutlineWhite.png" alt="Card Outline"
+									style="box-shadow: 0 0 20px 20px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
 							</div>
 
 							<!-- /.lqd-promo-img-inner 
@@ -338,8 +351,16 @@
 
 									<div class="pricing-table-body" style="margin-top: -50px;">
 
-										<img src="/queue_card_assets/CardOutlineWhite.png" alt="Card Outline">
-										<img src="/queue_card_assets/CardOutlineWhite.png" alt="Card Outline">
+										<div style="margin: auto; position: relative; text-align: center;">
+											<img class="card-front-small" src="queue_card_assets/CardOutlineWhite.png"
+												alt="Card Outline"
+												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
+										</div>
+										<div style="margin: auto; position: relative; text-align: center;">
+											<img class="card-back-small" src="queue_card_assets/CardOutlineWhite.png"
+												alt="Card Outline"
+												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
+										</div>
 
 									</div><!-- /.pricing-table-body -->
 
@@ -423,8 +444,16 @@
 
 									<div class="pricing-table-body" style="margin-top: -50px;">
 
-										<img src="/queue_card_assets/CardOutlineWhite.png" alt="Card Outline">
-										<img src="/queue_card_assets/CardOutlineWhite.png" alt="Card Outline">
+										<div style="margin: auto; position: relative; text-align: center;">
+											<img class="card-front-small" src="queue_card_assets/CardOutlineWhite.png"
+												alt="Card Outline"
+												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
+										</div>
+										<div style="margin: auto; position: relative; text-align: center;">
+											<img class="card-back-small" src="queue_card_assets/CardOutlineWhite.png"
+												alt="Card Outline"
+												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
+										</div>
 										<p class="text-white" style="margin: 0px;">500 cards</p>
 
 									</div><!-- /.pricing-table-body -->
@@ -515,8 +544,16 @@
 
 									<div class="pricing-table-body" style="margin-top: -50px;">
 
-										<img src="/queue_card_assets/CardOutlineWhite.png" alt="Card Outline">
-										<img src="/queue_card_assets/CardOutlineWhite.png" alt="Card Outline">
+										<div style="margin: auto; position: relative; text-align: center;">
+											<img class="card-front-small" src="queue_card_assets/CardOutlineWhite.png"
+												alt="Card Outline"
+												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
+										</div>
+										<div style="margin: auto; position: relative; text-align: center;">
+											<img class="card-back-small" src="queue_card_assets/CardOutlineWhite.png"
+												alt="Card Outline"
+												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
+										</div>
 										<p class="text-white" style="margin: 0px;">500 cards</p>
 										<p class="text-white" style="margin: 0px;">eStore +£5 p/m</p>
 
@@ -598,8 +635,16 @@
 
 									<div class="pricing-table-body" style="margin-top: -50px;">
 
-										<img src="/queue_card_assets/CardOutlineWhite.png" alt="Card Outline">
-										<img src="/queue_card_assets/CardOutlineWhite.png" alt="Card Outline">
+										<div style="margin: auto; position: relative; text-align: center;">
+											<img class="card-front-small" src="queue_card_assets/CardOutlineWhite.png"
+												alt="Card Outline"
+												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
+										</div>
+										<div style="margin: auto; position: relative; text-align: center;">
+											<img class="card-back-small" src="queue_card_assets/CardOutlineWhite.png"
+												alt="Card Outline"
+												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
+										</div>
 										<p class="text-white" style="margin: 0px;">500 cards</p>
 										<p class="text-white" style="margin: 0px;">eStore +£5 p/m</p>
 										<p class="text-white" style="margin: 0px;">£580 today <small>including
