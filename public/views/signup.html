@@ -95,10 +95,11 @@
 							<div class="lqd-promo-img" style="margin: auto; position: relative;
 							text-align: center;">
 
-								<a href="#">
-
-									<img src=".//queue_card_assets/CardOutlineWhite.png" alt="Promo"
-										style="margin: auto;">
+								<label for="image" style="cursor: pointer;">
+									<input type="file" name="image" id="image" style="display: none;"
+										onchange="uploadFrontImage(this)" />
+									<img src=".//queue_card_assets/CardOutlineWhite.png" alt="Card Outline"
+										style="margin: auto; cursor: pointer;">
 									<div style="position: absolute;
 										top: 50%;
 										left: 50%;
@@ -107,7 +108,19 @@
 											Click to Upload
 										</h3>
 									</div>
-								</a>
+								</label>
+								<script>
+									const uploadFrontImage = (input) => {
+										let fileObject = input.files[0];
+										let fileReader = new FileReader();
+										fileReader.readAsDataURL(fileObject);
+										fileReader.onload = function () {
+											let result = fileReader.result;
+											let cardFront = document.getElementById("card-front");
+											cardFront.style.backgroundImage = `url(${result})`;
+										}
+									}
+								</script>
 
 							</div>
 
@@ -164,13 +177,8 @@
 
 							<div class="lqd-promo-img" style="margin: auto; position: relative;
 							text-align: center;">
-
-								<a href="#">
-
-									<img src=".//queue_card_assets/CardOutlineWhite.png" alt="Promo"
-										style="margin: auto;">
-								</a>
-
+								<img id="card-front" src="queue_card_assets/CardOutlineWhite.png" alt="Card Outline"
+									style="box-shadow: 0 0 20px 20px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
 							</div>
 
 							<!-- /.lqd-promo-img-inner 
