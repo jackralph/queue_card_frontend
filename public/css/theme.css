@@ -29578,10 +29578,6 @@ body.search .no-results .search-form input[type="submit"] {
   .pb-5, .py-5 {
     padding-bottom: 0 !important;
   }
-
-  #quantity {
-    margin: 0;
-  }
 }
 
 @media screen and (max-width: 320px) {
