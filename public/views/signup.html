@@ -333,8 +333,10 @@
 												alt="Card Outline"
 												style="margin: auto; position: relative; border-radius: 15px; border: solid white;">
 										</div>
-										<p class="order-quantity" class="text-white" style="margin: 0px;"></p>
-
+										<p class="order-quantity" class="text-white" style="margin: 0px;">500 cards</p>
+										<p class="text-white e-store" style="margin: 0px;"></p>
+										<p class="text-white built-in-payments" style="margin: 0px;"></p>
+										<p class="text-white custom-card-design" style="margin: 0px;"></p>
 
 									</div><!-- /.pricing-table-body -->
 
@@ -431,8 +433,8 @@
 												style="margin: auto; position: relative; border-radius: 15px; border: solid white;">
 										</div>
 										<p class="order-quantity" class="text-white" style="margin: 0px;">500 cards</p>
-										<p class="text-white eStore" style="margin: 0px;"></p>
-										<p class="text-white Payments" style="margin: 0px;"></p>
+										<p class="text-white e-store" style="margin: 0px;"></p>
+										<p class="text-white built-in-payments" style="margin: 0px;"></p>
 										<p class="text-white custom-card-design" style="margin: 0px;"></p>
 
 									</div><!-- /.pricing-table-body -->
@@ -470,7 +472,7 @@
 
 												<a href="#"><i class="fa fa-question-circle text-white"></i></a>
 											</h4>
-											<a id="eStore" type="button" onclick="addon(this.name)" name="eStore"
+											<a id="e-store" type="button" onclick="addon(this.name)" name="e-store"
 												class="text-white"
 												style="border: solid; border-radius: 25pt; padding: 10px; cursor: pointer;">+
 												£5 p/m
@@ -478,18 +480,18 @@
 
 										</div>
 										<div style="display: inline;">
-											<h4 class=" text-white">
+											<h4 class="text-white">
 												Built-in Payments
 												<a href="#"><i class="fa fa-question-circle text-white"></i></a>
 											</h4>
-											<a id="Payments" type="button" onclick="addon(this.name)" name="Payments"
-												class="text-white"
+											<a id="built-in-payments" type="button" onclick="addon(this.name)"
+												name="built-in-payments" class="text-white"
 												style="border: solid; border-radius: 25pt; padding: 10px; cursor: pointer;">+
 												£5 p/m
 											</a>
 										</div>
 										<div style="display: inline;">
-											<h4 class=" text-white">
+											<h4 class="text-white">
 												Custom Card Design
 												<a href="#"><i class="fa fa-question-circle text-white"></i></a>
 											</h4>
@@ -548,8 +550,8 @@
 												style="margin: auto; position: relative; border-radius: 15px; border: solid white;">
 										</div>
 										<p class="order-quantity" class="text-white" style="margin: 0px;">500 cards</p>
-										<p class="text-white eStore" style="margin: 0px;"></p>
-										<p class="text-white Payments" style="margin: 0px;"></p>
+										<p class="text-white e-store" style="margin: 0px;"></p>
+										<p class="text-white built-in-payments" style="margin: 0px;"></p>
 										<p class="text-white custom-card-design" style="margin: 0px;"></p>
 
 									</div><!-- /.pricing-table-body -->
@@ -643,8 +645,8 @@
 												style="margin: auto; position: relative; border-radius: 15px; border: solid white;">
 										</div>
 										<p class="order-quantity" class="text-white" style="margin: 0px;">500 cards</p>
-										<p class="text-white eStore" style="margin: 0px;"></p>
-										<p class="text-white Payments" style="margin: 0px;"></p>
+										<p class="text-white e-store" style="margin: 0px;"></p>
+										<p class="text-white built-in-payments" style="margin: 0px;"></p>
 										<p class="text-white custom-card-design" style="margin: 0px;"></p>
 										<p id="total-price" class="text-white" style="margin: 0px;">£500 due today
 											<small>including shipping</small></p>
@@ -1066,6 +1068,7 @@
 	<script>
 		let monthlyPayment = 15;
 		let totalCards = 500;
+		let costToday = 500;
 		let eStoreAddon = false;
 		let paymentsAddon = false;
 		let customCardDesigns = false;
@@ -1109,18 +1112,28 @@
 		}
 
 		const costVariance = (numberOfCards) => {
-			return 1;
+			if (numberOfCards < 501) {
+				return 1;
+			} else if (numberOfCards < 999) {
+				return 0.95;
+			} else if (numberOfCards < 1999) {
+				return 0.80;
+			} else if (numberOfCards < 9999) {
+				return 0.70;
+			}
 		}
 
 		const updateQuantity = () => {
 			const slider = document.getElementById("slider");
 			const totalPrice = document.getElementById("total-price");
 			const orderQuantity = document.getElementsByClassName("order-quantity");
-			for (const element of orderQuantity) {
-				element.innerHTML = `${slider.value} cards`
-			}
 			totalCards = parseInt(slider.value);
-			totalPrice.innerHTML = `£${customCardDesigns ? slider.value * costVariance() + 15 : slider.value * costVariance()} today <small>including shipping</small>`
+			for (const element of orderQuantity) {
+				element.innerHTML = `${totalCards} cards`
+			}
+			costToday = Math.round(totalCards * costVariance(totalCards));
+			console.log(costToday);
+			totalPrice.innerHTML = `£${customCardDesigns ? costToday + 15 : costToday} today <small>including shipping</small>`
 		}
 
 		const addon = (elementName) => {
@@ -1130,28 +1143,46 @@
 			const totalPrice = document.getElementById("total-price");
 			const totalMonthly = document.getElementById("total-monthly");
 			if (addon[0].innerHTML.length === 0) {
-				if (elementName !== "custom-card-design") {
+				if (elementName === "e-store") {
 					for (let element of addon) {
-						element.innerHTML = `+ £5 Built-in ${elementName}`
+						element.innerHTML = "+ £5 Built-in eStore"
 					}
 					button.innerHTML = "Remove <i class='fa fa-minus-circle'/>";
+					eStoreAddon = true;
+					monthlyPayment += 5;
+					totalMonthly.innerHTML = `£${monthlyPayment} due next month`
+				} else if (elementName === "built-in-payments") {
+					for (let element of addon) {
+						element.innerHTML = "+ £5 Built-in Payments"
+					}
+					button.innerHTML = "Remove <i class='fa fa-minus-circle'/>";
+					paymentsAddon = true;
 					monthlyPayment += 5;
 					totalMonthly.innerHTML = `£${monthlyPayment} due next month`
 				} else {
 					for (let element of addon) {
-						element.innerHTML = `+ £15 Custom Card Design`
+						element.innerHTML = "+ £15 Custom Card Design"
 					}
 					button.innerHTML = "Remove <i class='fa fa-minus-circle'/>";
 					customCardDesigns = true;
-					monthlyPayment += 15;
-					totalPrice.innerHTML = `£${(slider.value * costVariance()) + 15} today <small>including shipping</small>`
+					costToday += 15;
+					totalPrice.innerHTML = `£${costToday} today <small>including shipping</small>`
 				}
 			} else {
-				if (elementName !== "custom-card-design") {
+				if (elementName === "e-store") {
 					for (let element of addon) {
 						element.innerHTML = ""
 					}
 					button.innerHTML = "+ £5 p/m";
+					eStoreAddon = false;
+					monthlyPayment -= 5;
+					totalMonthly.innerHTML = `£${monthlyPayment} due next month`
+				} else if (elementName === "built-in-payments") {
+					for (let element of addon) {
+						element.innerHTML = ""
+					}
+					button.innerHTML = "+ £5 p/m";
+					paymentsAddon = false;
 					monthlyPayment -= 5;
 					totalMonthly.innerHTML = `£${monthlyPayment} due next month`
 				} else {
@@ -1160,8 +1191,8 @@
 					}
 					button.innerHTML = "+ £15";
 					customCardDesigns = false;
-					monthlyPayment -= 15;
-					totalPrice.innerHTML = `£${slider.value * costVariance()} today <small>including shipping</small>`
+					costToday -= 15;
+					totalPrice.innerHTML = `£${costToday} today <small>including shipping</small>`
 				}
 			}
 		}
