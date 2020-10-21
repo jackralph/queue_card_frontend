@@ -58,7 +58,7 @@
 		</header><!-- /.main-header -->
 
 		<main id="content" class="content bg-black" data-liquid-stack="true"
-			data-stack-options='{"navigation":true,"prevNextButtons":true,"pageNumber":false,"prevNextLabels":{"prev":"Previous","next":"Next"},"effect":"fadeScale", "disableOnMobile": false}'>
+			data-stack-options='{"navigation":false,"prevNextButtons":true,"pageNumber":false,"prevNextLabels":{"prev":"Previous","next":"Next"},"effect":"fadeScale", "disableOnMobile": false}'>
 
 			<section class="vc_row fullheight d-flex flex-wrap align-items-center py-5 py-md-0 bg-gigas">
 
@@ -99,8 +99,8 @@
 								<label for="image-front" style="cursor: pointer;">
 									<input type="file" name="image-front" id="image-front" style="display: none;"
 										onchange="uploadFrontImage(this)" />
-									<img src="queue_card_assets/CardOutlineWhite.png" alt="Card Outline"
-										style="margin: auto; cursor: pointer;">
+									<img id="card-front-image" src="queue_card_assets/CardOutlineWhite.png"
+										alt="Card Outline" style="margin: auto; cursor: pointer;">
 									<div style="position: absolute;
 										top: 50%;
 										left: 50%;
@@ -108,6 +108,7 @@
 										<h3 id="upload-message-front" class="text-white">
 											Click to Upload
 										</h3>
+
 									</div>
 								</label>
 
@@ -125,6 +126,17 @@
 										style="text-decoration: underline;">front</span>
 									of your card. <br>
 									We recommend a size of ??? x ??? pixels.</h4>
+								<div class="tooltip" style="width: 100%; margin: auto; text-align: center;">
+									<h5 class="text-white">No design? <i class="fa fa-question-circle text-white"></i>
+									</h5>
+									<span class="tooltiptext" style="width: 75%; padding: 5px;">Click <a
+											href="#Section-5"
+											style="color: #d54be7; text-decoration: underline;">here</a>
+										to skip this
+										part. Don't stress! We'll be in contact after your order is placed to discuss
+										your
+										design.</span>
+								</div>
 							</div>
 						</div>
 					</div><!-- /.row -->
@@ -1082,14 +1094,13 @@
 				const cardFront = document.getElementById("card-front");
 				const smallCardsFront = document.getElementsByClassName("card-front-small");
 				const uploadMessageFront = document.getElementById("upload-message-front")
-				const hintMessageFront = document.getElementById("hint-message-front")
 				for (let element of smallCardsFront) {
 					element.setAttribute("src", result);
 				};
 				cardFront.setAttribute("src", result);
 				uploadMessageFront.innerHTML = "Uploaded!"
-				hintMessageFront.innerHTML = "Click the <span style='text-decoration: underline;'>right</span> arrow or  <span style='text-decoration: underline;'>scroll</span> to view."
 			}
+			location.href = "#Section-2";
 		}
 
 		const uploadBackImage = (input) => {
@@ -1101,14 +1112,13 @@
 				const cardBack = document.getElementById("card-back");
 				const smallCardsBack = document.getElementsByClassName("card-back-small");
 				const uploadMessageBack = document.getElementById("upload-message-back")
-				const hintMessageBack = document.getElementById("hint-message-back")
 				for (let element of smallCardsBack) {
 					element.setAttribute("src", result);
 				};
 				cardBack.setAttribute("src", result);
 				uploadMessageBack.innerHTML = "Uploaded!"
-				hintMessageBack.innerHTML = "Click the <span style='text-decoration: underline;'>right</span> arrow or  <span style='text-decoration: underline;'>scroll</span> to view."
 			}
+			location.href = "#Section-4";
 		}
 
 		const costVariance = (numberOfCards) => {
@@ -1214,6 +1224,39 @@
 			} else {
 				alert("You must agree to the terms and conditions")
 			}
+		}
+	</script>
+	<script>
+		var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
+
+		function preventDefault(e) {
+			e.preventDefault();
+		}
+
+		function preventDefaultForScrollKeys(e) {
+			if (keys[e.keyCode]) {
+				preventDefault(e);
+				return false;
+			}
+		}
+
+		// modern Chrome requires { passive: false } when adding event
+		var supportsPassive = false;
+		try {
+			window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+				get: function () { supportsPassive = true; }
+			}));
+		} catch (e) { }
+
+		var wheelOpt = supportsPassive ? { passive: false } : false;
+		var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
+		// call this to Disable
+		function disableScroll() {
+			window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+			window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+			window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+			window.addEventListener('keydown', preventDefaultForScrollKeys, false);
 		}
 	</script>
 
