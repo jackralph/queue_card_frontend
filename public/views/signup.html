@@ -110,26 +110,6 @@
 										</h3>
 									</div>
 								</label>
-								<script>
-									const uploadFrontImage = (input) => {
-										let fileObject = input.files[0];
-										let fileReader = new FileReader();
-										fileReader.readAsDataURL(fileObject);
-										fileReader.onload = function () {
-											let result = fileReader.result;
-											let cardFront = document.getElementById("card-front");
-											let smallCardsFront = document.getElementsByClassName("card-front-small");
-											let uploadMessageFront = document.getElementById("upload-message-front")
-											let hintMessageFront = document.getElementById("hint-message-front")
-											for (let element of smallCardsFront) {
-												element.style.backgroundImage = `url(${result})`;
-											};
-											cardFront.style.backgroundImage = `url(${result})`;
-											uploadMessageFront.innerHTML = "Uploaded!"
-											hintMessageFront.innerHTML = "Click the <span style='text-decoration: underline;'>right</span> arrow or  <span style='text-decoration: underline;'>scroll</span> to view."
-										}
-									}
-								</script>
 
 							</div>
 
@@ -246,26 +226,6 @@
 										</h3>
 									</div>
 								</label>
-								<script>
-									const uploadBackImage = (input) => {
-										let fileObject = input.files[0];
-										let fileReader = new FileReader();
-										fileReader.readAsDataURL(fileObject);
-										fileReader.onload = function () {
-											let result = fileReader.result;
-											let cardBack = document.getElementById("card-back");
-											let smallCardsBack = document.getElementsByClassName("card-back-small");
-											let uploadMessageBack = document.getElementById("upload-message-back")
-											let hintMessageBack = document.getElementById("hint-message-back")
-											for (let element of smallCardsBack) {
-												element.style.backgroundImage = `url(${result})`;
-											};
-											cardBack.style.backgroundImage = `url(${result})`;
-											uploadMessageBack.innerHTML = "Uploaded!"
-											hintMessageBack.innerHTML = "Click the <span style='text-decoration: underline;'>right</span> arrow or  <span style='text-decoration: underline;'>scroll</span> to view."
-										}
-									}
-								</script>
 
 							</div>
 
@@ -409,26 +369,16 @@
 										<script>
 											const slider = document.getElementById("slider");
 											const value = document.getElementById("quantity");
-											const orderQuantity = document.getElementsByClassName("order-quantity");
 											value.innerHTML = slider.value;
 											slider.oninput = function () {
 												value.innerHTML = this.value;
 											}
 										</script>
-										<script>
-											const updateQuantity = () => {
-												let slider = document.getElementById("slider");
-												for (let element of orderQuantity) {
-													element.innerHTML = `${slider.value} cards`
-												}
-											}
-										</script>
+
 									</div><!-- /.pricing-table-head -->
 
 									<div class="pricing-table-body" style="padding-top: 20px;">
 										<h4 class="text-white">£1 per Card<br> + Postage<br> + £15 Upkeep</h4>
-
-
 									</div><!-- /.pricing-table-body -->
 								</div><!-- /.pricing-table -->
 							</div><!-- /.col-lg-4 col-md-12 -->
@@ -475,9 +425,10 @@
 												alt="Card Outline"
 												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
 										</div>
-										<p class="order-quantity" class="text-white" style="margin: 0px;"></p>
+										<p class="order-quantity" class="text-white" style="margin: 0px;">500 cards</p>
 										<p class="text-white eStore" style="margin: 0px;"></p>
 										<p class="text-white Payments" style="margin: 0px;"></p>
+										<p class="text-white custom-card-design" style="margin: 0px;"></p>
 
 									</div><!-- /.pricing-table-body -->
 
@@ -532,25 +483,17 @@
 												£5 p/m
 											</a>
 										</div>
-										<script>
-											const addon = (elementName) => {
-
-												let addon = document.getElementsByClassName(elementName);
-												let button = document.getElementById(elementName);
-												if (addon[0].innerHTML.length === 0) {
-													for (let element of addon) {
-														element.innerHTML = `+ £5 Built-in ${elementName}`
-													}
-													button.innerHTML = "Remove <i class='fa fa-minus-circle'/>";
-												} else {
-													for (let element of addon) {
-														element.innerHTML = ""
-													}
-													button.innerHTML = "+ £5 p/m";
-												}
-
-											}
-										</script>
+										<div style="display: inline;">
+											<h4 class=" text-white">
+												Custom Card Design
+												<a href="#"><i class="fa fa-question-circle text-white"></i></a>
+											</h4>
+											<a id="custom-card-design" type="button" onclick="addon(this.name)"
+												name="custom-card-design" class="text-white"
+												style="border: solid; border-radius: 25pt; padding: 10px; cursor: pointer;">+
+												£15
+											</a>
+										</div>
 									</div><!-- /.pricing-table-body -->
 								</div><!-- /.pricing-table -->
 							</div><!-- /.col-lg-4 col-md-12 -->
@@ -597,9 +540,10 @@
 												alt="Card Outline"
 												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
 										</div>
-										<p class="order-quantity" class="text-white" style="margin: 0px;"></p>
+										<p class="order-quantity" class="text-white" style="margin: 0px;">500 cards</p>
 										<p class="text-white eStore" style="margin: 0px;"></p>
 										<p class="text-white Payments" style="margin: 0px;"></p>
+										<p class="text-white custom-card-design" style="margin: 0px;"></p>
 
 									</div><!-- /.pricing-table-body -->
 
@@ -639,18 +583,6 @@
 
 											</h4>
 										</div>
-										<script>
-
-											const termsAgreed = () => {
-												let termsWarning = document.getElementById("terms-warning");
-												let agreed = document.getElementById("terms").checked;
-												if (!agreed) {
-													termsWarning.innerHTML = "You must agree to the <a href='#Section-7'>Terms and Conditions </a>before proceeding with your payment."
-												} else {
-													termsWarning.innerHTML = ""
-												}
-											}
-										</script>
 
 									</div><!-- /.pricing-table-head -->
 								</div><!-- /.pricing-table-body -->
@@ -701,12 +633,13 @@
 												alt="Card Outline"
 												style="box-shadow: 0 0 20px 10px rgb(68, 57, 169) inset; margin: auto; position: relative; background-size: contain; background-repeat: no-repeat; border-radius: 15px;">
 										</div>
-										<p class="order-quantity" class="text-white" style="margin: 0px;"></p>
+										<p class="order-quantity" class="text-white" style="margin: 0px;">500 cards</p>
 										<p class="text-white eStore" style="margin: 0px;"></p>
 										<p class="text-white Payments" style="margin: 0px;"></p>
-										<p class="text-white" style="margin: 0px;">£580 today <small>including
-												shipping</small></p>
-										<p class="text-white" style="margin: 0px;">£5 due next month</p>
+										<p class="text-white custom-card-design" style="margin: 0px;"></p>
+										<p id="total-price" class="text-white" style="margin: 0px;"></p>
+										<p id="total-monthly" class="text-white" style="margin: 0px;">£15 due next month
+										</p>
 
 									</div><!-- /.pricing-table-body -->
 
@@ -1029,16 +962,6 @@
 
 										</div>
 									</div>
-									<script>
-										const handlePayment = () => {
-											let termsAgreedCheck = document.getElementById("terms");
-											if (termsAgreedCheck.checked) {
-												console.log("proceed with payment")
-											} else {
-												alert("You must agree to the terms and conditions")
-											}
-										}
-									</script>
 								</div>
 
 
@@ -1129,6 +1052,119 @@
 	<script src="/js/theme-vendors.js"></script>
 	<script src="/vendors/pagePiling/dist/jquery.pagepiling.min.js"></script>
 	<script src="/js/theme.min.js"></script>
+
+	<script>
+		let monthlyPayment = 15;
+		let totalCards = 500;
+
+		const uploadFrontImage = (input) => {
+			const fileObject = input.files[0];
+			const fileReader = new FileReader();
+			fileReader.readAsDataURL(fileObject);
+			fileReader.onload = function () {
+				const result = fileReader.result;
+				const cardFront = document.getElementById("card-front");
+				const smallCardsFront = document.getElementsByClassName("card-front-small");
+				const uploadMessageFront = document.getElementById("upload-message-front")
+				const hintMessageFront = document.getElementById("hint-message-front")
+				for (let element of smallCardsFront) {
+					element.style.backgroundImage = `url(${result})`;
+				};
+				cardFront.style.backgroundImage = `url(${result})`;
+				uploadMessageFront.innerHTML = "Uploaded!"
+				hintMessageFront.innerHTML = "Click the <span style='text-decoration: underline;'>right</span> arrow or  <span style='text-decoration: underline;'>scroll</span> to view."
+			}
+		}
+
+		const uploadBackImage = (input) => {
+			const fileObject = input.files[0];
+			const fileReader = new FileReader();
+			fileReader.readAsDataURL(fileObject);
+			fileReader.onload = function () {
+				const result = fileReader.result;
+				const cardBack = document.getElementById("card-back");
+				const smallCardsBack = document.getElementsByClassName("card-back-small");
+				const uploadMessageBack = document.getElementById("upload-message-back")
+				const hintMessageBack = document.getElementById("hint-message-back")
+				for (let element of smallCardsBack) {
+					element.style.backgroundImage = `url(${result})`;
+				};
+				cardBack.style.backgroundImage = `url(${result})`;
+				uploadMessageBack.innerHTML = "Uploaded!"
+				hintMessageBack.innerHTML = "Click the <span style='text-decoration: underline;'>right</span> arrow or  <span style='text-decoration: underline;'>scroll</span> to view."
+			}
+		}
+
+		const updateQuantity = () => {
+			const slider = document.getElementById("slider");
+			const totalPrice = document.getElementById("total-price");
+			const orderQuantity = document.getElementsByClassName("order-quantity");
+			for (const element of orderQuantity) {
+				element.innerHTML = `${slider.value} cards`
+			}
+			totalCards = parseInt(slider.value);
+			totalPrice.innerHTML = `£${slider.value * 1} today <small>including shipping</small>`
+		}
+
+		const addon = (elementName) => {
+			const addon = document.getElementsByClassName(elementName);
+			const button = document.getElementById(elementName);
+			const slider = document.getElementById("slider");
+			const totalPrice = document.getElementById("total-price");
+			const totalMonthly = document.getElementById("total-monthly");
+			if (addon[0].innerHTML.length === 0) {
+				if (elementName !== "custom-card-design") {
+					for (let element of addon) {
+						element.innerHTML = `+ £5 Built-in ${elementName}`
+					}
+					button.innerHTML = "Remove <i class='fa fa-minus-circle'/>";
+					monthlyPayment += 5;
+					totalMonthly.innerHTML = `£${monthlyPayment} due next month`
+				} else {
+					for (let element of addon) {
+						element.innerHTML = `+ £15 Custom Card Design`
+					}
+					button.innerHTML = "Remove <i class='fa fa-minus-circle'/>";
+					totalPrice.innerHTML = `£${(slider.value * 1) + 15} today <small>including shipping</small>`
+				}
+			} else {
+				if (elementName !== "custom-card-design") {
+					for (let element of addon) {
+						element.innerHTML = ""
+					}
+					button.innerHTML = "+ £5 p/m";
+					monthlyPayment -= 5;
+					totalMonthly.innerHTML = `£${monthlyPayment} due next month`
+				} else {
+					for (let element of addon) {
+						element.innerHTML = ""
+					}
+					button.innerHTML = "+ £15";
+					totalPrice.innerHTML = `£${slider.value * 1} today <small>including shipping</small>`
+				}
+			}
+			console.log(totalCards);
+		}
+
+		const termsAgreed = () => {
+			const termsWarning = document.getElementById("terms-warning");
+			const agreed = document.getElementById("terms").checked;
+			if (!agreed) {
+				termsWarning.innerHTML = "You must agree to the <a href='#Section-7'>Terms and Conditions </a>before proceeding with your payment."
+			} else {
+				termsWarning.innerHTML = ""
+			}
+		}
+
+		const handlePayment = () => {
+			const termsAgreedCheck = document.getElementById("terms");
+			if (termsAgreedCheck.checked) {
+				console.log("proceed with payment")
+			} else {
+				alert("You must agree to the terms and conditions")
+			}
+		}
+	</script>
 
 </body>
 
