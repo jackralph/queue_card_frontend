@@ -646,7 +646,8 @@
 										<p class="text-white eStore" style="margin: 0px;"></p>
 										<p class="text-white Payments" style="margin: 0px;"></p>
 										<p class="text-white custom-card-design" style="margin: 0px;"></p>
-										<p id="total-price" class="text-white" style="margin: 0px;"></p>
+										<p id="total-price" class="text-white" style="margin: 0px;">£500 due today
+											<small>including shipping</small></p>
 										<p id="total-monthly" class="text-white" style="margin: 0px;">£15 due next month
 										</p>
 
@@ -1065,6 +1066,9 @@
 	<script>
 		let monthlyPayment = 15;
 		let totalCards = 500;
+		let eStoreAddon = false;
+		let paymentsAddon = false;
+		let customCardDesigns = false;
 
 		const uploadFrontImage = (input) => {
 			const fileObject = input.files[0];
@@ -1104,6 +1108,10 @@
 			}
 		}
 
+		const costVariance = (numberOfCards) => {
+			return 1;
+		}
+
 		const updateQuantity = () => {
 			const slider = document.getElementById("slider");
 			const totalPrice = document.getElementById("total-price");
@@ -1112,7 +1120,7 @@
 				element.innerHTML = `${slider.value} cards`
 			}
 			totalCards = parseInt(slider.value);
-			totalPrice.innerHTML = `£${slider.value * 1} today <small>including shipping</small>`
+			totalPrice.innerHTML = `£${customCardDesigns ? slider.value * costVariance() + 15 : slider.value * costVariance()} today <small>including shipping</small>`
 		}
 
 		const addon = (elementName) => {
@@ -1134,7 +1142,9 @@
 						element.innerHTML = `+ £15 Custom Card Design`
 					}
 					button.innerHTML = "Remove <i class='fa fa-minus-circle'/>";
-					totalPrice.innerHTML = `£${(slider.value * 1) + 15} today <small>including shipping</small>`
+					customCardDesigns = true;
+					monthlyPayment += 15;
+					totalPrice.innerHTML = `£${(slider.value * costVariance()) + 15} today <small>including shipping</small>`
 				}
 			} else {
 				if (elementName !== "custom-card-design") {
@@ -1149,10 +1159,11 @@
 						element.innerHTML = ""
 					}
 					button.innerHTML = "+ £15";
-					totalPrice.innerHTML = `£${slider.value * 1} today <small>including shipping</small>`
+					customCardDesigns = false;
+					monthlyPayment -= 15;
+					totalPrice.innerHTML = `£${slider.value * costVariance()} today <small>including shipping</small>`
 				}
 			}
-			console.log(totalCards);
 		}
 
 		const termsAgreed = () => {
