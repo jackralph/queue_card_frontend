@@ -635,10 +635,22 @@
 													<span style="text-decoration: underline; color: #d54be7;"><br>
 														Terms and Conditions</span>&nbsp
 												</a>
-												<input type="checkbox" id="terms">
+												<input type="checkbox" id="terms" onchange="termsAgreed()">
 
 											</h4>
 										</div>
+										<script>
+
+											const termsAgreed = () => {
+												let termsWarning = document.getElementById("terms-warning");
+												let agreed = document.getElementById("terms").checked;
+												if (!agreed) {
+													termsWarning.innerHTML = "You must agree to the <a href='#Section-7'>Terms and Conditions </a>before proceeding with your payment."
+												} else {
+													termsWarning.innerHTML = ""
+												}
+											}
+										</script>
 
 									</div><!-- /.pricing-table-head -->
 								</div><!-- /.pricing-table-body -->
@@ -1013,9 +1025,7 @@
 													<i class="fa fa-google text-white"></i> Pay
 												</h3>
 											</a>
-											<p id="terms-warning" class="text-white">You must agree to the <a
-													href="#Section-7">Terms and
-													Conditions </a>before proceeding with your payment.</p>
+											<p id="terms-warning" class="text-white"></p>
 
 										</div>
 									</div>
