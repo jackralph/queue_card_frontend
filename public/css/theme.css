@@ -29524,6 +29524,11 @@ body.search .no-results .search-form input[type="submit"] {
   margin-top: -150px;
 }
 
+.small-button {
+  padding: 10px;
+}
+
+
 @media screen and (max-width: 1199px) {
   .sign-up .sign-up-order {
     margin-top: 0px;
@@ -29543,6 +29548,40 @@ body.search .no-results .search-form input[type="submit"] {
   .sign-up h4 {
     font-size: 0.8em;
   }
+  .your-order p {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+  .your-order img {
+    height: 5em;
+  }
+  .small-button {
+    font-size: 0.8em;
+    padding: 5px;
+  }
+
+  .pt-5, .py-5 {
+    padding-top: 0 !important;
+  }
+
+  .pb-5, .py-5 {
+    padding-bottom: 0 !important;
+  }
+
+  #quantity {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+
+  .your-order img {
+    display: none;
+  }
+  #quantity {
+    margin: 0;
+  }
+
 }
 
 /* 5.6. Tooltip */

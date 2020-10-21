@@ -158,8 +158,8 @@
 				<div class="container">
 					<div class="row">
 						<div style="width: 100%; margin: auto;">
-							<h2 class="text-white" style="text-align: center; margin-top: 0px;">
-								Looks great!</h2>
+							<h2 id="front-card-status" class="text-white" style="text-align: center; margin-top: 0px;">
+								No design added yet.</h2>
 						</div>
 
 						<div class="lqd-promo-inner">
@@ -274,7 +274,8 @@
 				<div class="container">
 					<div class="row">
 						<div style="width: 100%; margin: auto;">
-							<h2 class="text-white" style="text-align: center; margin-top: 0px;">Lovely stuff!</h2>
+							<h2 id="back-card-status" class="text-white" style="text-align: center; margin-top: 0px;">
+								No design added yet</h2>
 						</div>
 
 						<div class="lqd-promo-inner">
@@ -323,7 +324,7 @@
 
 							<div class="lqd-column col-lg-6 col-md-12 sign-up-order" style="margin-bottom: -150px;">
 
-								<div class="pricing-table pricing-table-modern text-white">
+								<div class="pricing-table pricing-table-modern text-white your-order">
 
 									<div class="pricing-table-header">
 
@@ -422,7 +423,7 @@
 
 							<div class="lqd-column col-lg-6 col-md-12 sign-up-order" style="margin-bottom: -150px;">
 
-								<div class="pricing-table pricing-table-modern text-white">
+								<div class="pricing-table pricing-table-modern text-white your-order">
 
 									<div class="pricing-table-header">
 
@@ -478,38 +479,38 @@
 									</div><!-- /.pricing-table-head -->
 
 									<div class="pricing-table-body" style="padding: 0px;">
-										<div style="display: inline;">
+										<div>
 											<h4 class=" text-white">
 												Built-in eStore
 
 												<a href="#"><i class="fa fa-question-circle text-white"></i></a>
 											</h4>
 											<a id="e-store" type="button" onclick="addon(this.name)" name="e-store"
-												class="text-white"
-												style="border: solid; border-radius: 25pt; padding: 10px; cursor: pointer;">+
+												class="text-white small-button"
+												style="border: solid; border-radius: 25pt; cursor: pointer;">+
 												£5 p/m
 											</a>
 
 										</div>
-										<div style="display: inline;">
+										<div>
 											<h4 class="text-white">
 												Built-in Payments
 												<a href="#"><i class="fa fa-question-circle text-white"></i></a>
 											</h4>
 											<a id="built-in-payments" type="button" onclick="addon(this.name)"
-												name="built-in-payments" class="text-white"
-												style="border: solid; border-radius: 25pt; padding: 10px; cursor: pointer;">+
+												name="built-in-payments" class="text-white small-button"
+												style="border: solid; border-radius: 25pt; cursor: pointer;">+
 												£5 p/m
 											</a>
 										</div>
-										<div style="display: inline;">
+										<div>
 											<h4 class="text-white">
 												Custom Card Design
 												<a href="#"><i class="fa fa-question-circle text-white"></i></a>
 											</h4>
 											<a id="custom-card-design" type="button" onclick="addon(this.name)"
-												name="custom-card-design" class="text-white"
-												style="border: solid; border-radius: 25pt; padding: 10px; cursor: pointer;">+
+												name="custom-card-design" class="text-white small-button"
+												style="border: solid; border-radius: 25pt; cursor: pointer;">+
 												£15
 											</a>
 										</div>
@@ -539,9 +540,9 @@
 
 							<div class="lqd-column col-lg-6 col-md-12 sign-up-order" style="margin-bottom: -150px;">
 
-								<div class="pricing-table pricing-table-modern text-white">
+								<div class="pricing-table pricing-table-modern text-white your-order">
 
-									<div class="pricing-table-header">
+									<div class="pricing-table-header" style="margin-top: -100px;">
 
 										<h2 class="text-white">Your order</h2>
 
@@ -632,11 +633,11 @@
 
 							<div class="lqd-column col-lg-6 col-md-12 sign-up-order" style="margin-bottom: -150px;">
 
-								<div class="pricing-table pricing-table-modern text-white">
+								<div class="pricing-table pricing-table-modern text-white your-order">
 
-									<div class="pricing-table-header">
+									<div class="pricing-table-header" style="margin-top: -100px;">
 
-										<h2 class="text-white">
+										<h2 class=" text-white">
 											Almost there!<br>How's it all looking?
 										</h2>
 
@@ -1093,12 +1094,14 @@
 				const result = fileReader.result;
 				const cardFront = document.getElementById("card-front");
 				const smallCardsFront = document.getElementsByClassName("card-front-small");
-				const uploadMessageFront = document.getElementById("upload-message-front")
+				const uploadMessageFront = document.getElementById("upload-message-front");
+				const frontCardStatus = document.getElementById("front-card-status");
 				for (let element of smallCardsFront) {
 					element.setAttribute("src", result);
 				};
 				cardFront.setAttribute("src", result);
 				uploadMessageFront.innerHTML = "Uploaded!"
+				frontCardStatus.innerHTML = "Looks great!"
 			}
 			location.href = "#Section-2";
 		}
@@ -1111,12 +1114,14 @@
 				const result = fileReader.result;
 				const cardBack = document.getElementById("card-back");
 				const smallCardsBack = document.getElementsByClassName("card-back-small");
-				const uploadMessageBack = document.getElementById("upload-message-back")
+				const uploadMessageBack = document.getElementById("upload-message-back");
+				const backCardStatus = document.getElementById("back-card-status");
 				for (let element of smallCardsBack) {
 					element.setAttribute("src", result);
 				};
 				cardBack.setAttribute("src", result);
 				uploadMessageBack.innerHTML = "Uploaded!"
+				backCardStatus.innerHTML = "Lovely stuff!"
 			}
 			location.href = "#Section-4";
 		}
@@ -1142,7 +1147,6 @@
 				element.innerHTML = `${totalCards} cards`
 			}
 			costToday = Math.round(totalCards * costVariance(totalCards));
-			console.log(costToday);
 			totalPrice.innerHTML = `£${customCardDesigns ? costToday + 15 : costToday} today <small>including shipping</small>`
 		}
 
