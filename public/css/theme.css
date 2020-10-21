@@ -29549,7 +29549,7 @@ body.search .no-results .search-form input[type="submit"] {
     font-size: 0.8em;
   }
   .your-order p {
-    font-size: 1em;
+    font-size: 0.8em;
     line-height: 1.5em;
   }
   .your-order img {
@@ -29558,6 +29558,17 @@ body.search .no-results .search-form input[type="submit"] {
   .small-button {
     font-size: 0.8em;
     padding: 5px;
+  }
+
+  .your-order h2 {
+    font-size: 1.2em;
+  }
+  .your-order h5 {
+    font-size: 0.8em;
+  }
+
+  .your-order input {
+    font-size: 0.8em;
   }
 
   .pt-5, .py-5 {

@@ -275,7 +275,7 @@
 					<div class="row">
 						<div style="width: 100%; margin: auto;">
 							<h2 id="back-card-status" class="text-white" style="text-align: center; margin-top: 0px;">
-								No design added yet</h2>
+								No design added yet.</h2>
 						</div>
 
 						<div class="lqd-promo-inner">
@@ -332,7 +332,7 @@
 
 									</div><!-- /.pricing-table-head -->
 
-									<div class="pricing-table-body" style="margin-top: -50px;">
+									<div class="pricing-table-body" style="margin-top: -50px; margin-bottom: 30px;">
 
 										<div style="margin: auto; position: relative;
 							text-align: center;">
@@ -375,7 +375,7 @@
 									<div class="pricing-table-header">
 
 										<h2 class="text-white">
-											How many would you like? </h2>
+											How many would you like?</h2>
 										<h2 id="quantity" class="text-white">
 
 										</h2>
@@ -431,7 +431,7 @@
 
 									</div><!-- /.pricing-table-head -->
 
-									<div class="pricing-table-body" style="margin-top: -50px;">
+									<div class="pricing-table-body" style="margin-top: -50px; margin-bottom: 30px;">
 
 										<div style="margin: auto; position: relative;
 							text-align: center;">
@@ -548,7 +548,7 @@
 
 									</div><!-- /.pricing-table-head -->
 
-									<div class="pricing-table-body" style="margin-top: -50px;">
+									<div class="pricing-table-body" style="margin-top: -50px; margin-bottom: 30px;">
 
 										<div style="margin: auto; position: relative;
 							text-align: center;">
@@ -643,7 +643,7 @@
 
 									</div><!-- /.pricing-table-head -->
 
-									<div class="pricing-table-body" style="margin-top: -50px;">
+									<div class="pricing-table-body" style="margin-top: -50px; margin-bottom: 30px;">
 
 										<div style="margin: auto; position: relative;
 							text-align: center;">
@@ -662,7 +662,7 @@
 										<p class="text-white built-in-payments" style="margin: 0px;"></p>
 										<p class="text-white custom-card-design" style="margin: 0px;"></p>
 										<p id="total-price" class="text-white" style="margin: 0px;">£500 due today
-											<small>including shipping</small></p>
+											<small>inc. shipping</small></p>
 										<p id="total-monthly" class="text-white" style="margin: 0px;">£15 due next month
 										</p>
 
@@ -746,7 +746,7 @@
 																M565.540,489.760 C552.207,612.479 448.265,708.000 322.000,708.000 C204.702,708.000 106.675,625.562 82.651,515.468 C31.964,470.582 -0.000,405.029 -0.000,332.000 C-0.000,196.690 109.690,87.000 245.000,87.000 C282.624,87.000 318.258,95.493 350.111,110.649 C393.897,44.009 469.303,0.000 555.000,0.000 C690.310,0.000 800.000,109.690 800.000,245.000 C800.000,376.777 695.958,484.238 565.540,489.760 Z" />
 								</svg>
 							</div><!-- /.lqd-promo-dynamic-shape -->
-							<div style="width: 100%; margin: auto;">
+							<div class="your-order" style="width: 100%; margin: auto;">
 								<h2 class="text-white" style="text-align: center; margin-top: 0px;">
 									Let's get you signed up.</h2>
 							</div>
@@ -778,9 +778,9 @@
 
 							</div><!-- /.lqd-promo-inner -->
 
-							<div style="width: 50%; margin: auto;">
+							<div style="width: 75%; margin: auto;">
 
-								<div style="margin-top: 20px;">
+								<div class="your-order" style="margin-top: 20px;">
 									<p class="text-white"
 										style="margin-top: auto; margin-bottom: auto; text-align: center;">
 										These are the
@@ -832,12 +832,12 @@
 																M565.540,489.760 C552.207,612.479 448.265,708.000 322.000,708.000 C204.702,708.000 106.675,625.562 82.651,515.468 C31.964,470.582 -0.000,405.029 -0.000,332.000 C-0.000,196.690 109.690,87.000 245.000,87.000 C282.624,87.000 318.258,95.493 350.111,110.649 C393.897,44.009 469.303,0.000 555.000,0.000 C690.310,0.000 800.000,109.690 800.000,245.000 C800.000,376.777 695.958,484.238 565.540,489.760 Z" />
 								</svg>
 							</div><!-- /.lqd-promo-dynamic-shape -->
-							<div style="width: 100%; margin: auto;">
+							<div class="your-order" style="width: 100%; margin: auto;">
 								<h2 class="text-white" style="text-align: center; margin-top: 0px; margin-bottom: 5px;">
 									Where's your order off to?</h2>
 							</div>
 
-							<div class="lqd-promo-inner">
+							<div class="lqd-promo-inner your-order">
 								<div style="width: 100%; margin: auto; text-align: center;">
 
 									<div>
@@ -1147,7 +1147,7 @@
 				element.innerHTML = `${totalCards} cards`
 			}
 			costToday = Math.round(totalCards * costVariance(totalCards));
-			totalPrice.innerHTML = `£${customCardDesigns ? costToday + 15 : costToday} today <small>including shipping</small>`
+			totalPrice.innerHTML = `£${customCardDesigns ? costToday + 15 : costToday} today <small>inc. shipping</small>`
 		}
 
 		const addon = (elementName) => {
@@ -1180,7 +1180,7 @@
 					button.innerHTML = "Remove <i class='fa fa-minus-circle'/>";
 					customCardDesigns = true;
 					costToday += 15;
-					totalPrice.innerHTML = `£${costToday} today <small>including shipping</small>`
+					totalPrice.innerHTML = `£${costToday} today <small>inc. shipping</small>`
 				}
 			} else {
 				if (elementName === "e-store") {
@@ -1206,7 +1206,7 @@
 					button.innerHTML = "+ £15";
 					customCardDesigns = false;
 					costToday -= 15;
-					totalPrice.innerHTML = `£${costToday} today <small>including shipping</small>`
+					totalPrice.innerHTML = `£${costToday} today <small>inc. shipping</small>`
 				}
 			}
 		}
