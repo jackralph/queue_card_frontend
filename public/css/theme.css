@@ -29536,6 +29536,11 @@ body.search .no-results .search-form input[type="submit"] {
 }
 
 @media screen and (max-width: 540px) {
+
+  body {
+    overflow: hidden !important;
+  }
+
   .navbar-brand img {
     height: 1.5em;
   }
