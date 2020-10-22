@@ -155,7 +155,7 @@
 
 				</div><!-- /.lqd-particles-bg-wrap -->
 
-				<div class="container">
+				<div class="container" style="margin-top: -100px;">
 					<div class="row">
 						<div style="width: 100%; margin: auto;">
 							<h2 id="front-card-status" class="text-white" style="text-align: center; margin-top: 0px;">
@@ -179,7 +179,7 @@
 							<div class="lqd-promo-img" style="margin: auto; position: relative;
 							text-align: center;">
 								<img id="card-front" src="queue_card_assets/queuecardcard.png" alt="Card Outline"
-									style="margin: auto; position: relative; border-radius: 15px; border: solid white;">
+									style="margin: auto; position: relative; border-radius: 35px; border: solid white;">
 							</div>
 
 							<!-- /.lqd-promo-img-inner 
@@ -271,7 +271,7 @@
 
 				</div><!-- /.lqd-particles-bg-wrap -->
 
-				<div class="container">
+				<div class="container" style="margin-top: -100px;">
 					<div class="row">
 						<div style="width: 100%; margin: auto;">
 							<h2 id="back-card-status" class="text-white" style="text-align: center; margin-top: 0px;">
@@ -295,7 +295,7 @@
 							<div class="lqd-promo-img" style="margin: auto; position: relative;
 							text-align: center;">
 								<img id="card-back" src="queue_card_assets/queuecardcard.png" alt="Card Outline"
-									style="margin: auto; position: relative; border-radius: 15px; border: solid white;">
+									style="margin: auto; position: relative; border-radius: 35px; border: solid white;">
 							</div>
 
 							<!-- /.lqd-promo-img-inner 
@@ -379,6 +379,13 @@
 										<h2 id="quantity" class="text-white">
 
 										</h2>
+										<div class="tooltip" style="width: 100%; margin: auto; text-align: center;">
+											<p id="order-quantity-warning" class="text-white" hidden>More than this? <i
+													class="fa fa-question-circle text-white"></i>
+											</p>
+											<span class="tooltiptext" style="width: 75%; padding: 5px;">For orders over
+												10,000 units, please call 0800 975 4021.</span>
+										</div>
 										<div class="slide-container">
 											<input onchange="updateQuantity()" type="range" min="100" max="10000"
 												value="500" class="slider" id="slider" step="10"
@@ -387,9 +394,15 @@
 										<script>
 											const slider = document.getElementById("slider");
 											const value = document.getElementById("quantity");
+											const warningMessage = document.getElementById("order-quantity-warning");
 											value.innerHTML = slider.value;
 											slider.oninput = function () {
 												value.innerHTML = this.value;
+												if (slider.value > 9999) {
+													warningMessage.removeAttribute("hidden");
+												} else if (slider.value < 9999 && !warningMessage.hidden) {
+													warningMessage.setAttribute("hidden", true);
+												}
 											}
 										</script>
 
@@ -526,99 +539,6 @@
 				<div class="lqd-particles-bg-wrap">
 
 					<div class="ld-particles-container">
-						<div class="ld-particles-inner" id="ld-particles-7" data-particles="true"
-							data-particles-options='{"particles":{"number":{"value":6},"color":{"value":["#ffb739","#fe045e","#3de4a3","#aa57ff"]},"shape":{"type":["circle"]},"opacity":{"random":true,"anim":{"enable":true,"opacity_min":0.6,"speed":1,"sync":true}},"size":{"value":3,"random":true,"anim":{"enable":true,"size_min":2,"speed":1}},"move":{"out_mode":"out"}},"interactivity":[]}'>
-						</div>
-					</div>
-
-				</div><!-- /.lqd-particles-bg-wrap -->
-				<div class="container">
-					<div class="row">
-
-
-						<div class="sign-up">
-
-							<div class="lqd-column col-lg-6 col-md-12 sign-up-order" style="margin-bottom: -150px;">
-
-								<div class="pricing-table pricing-table-modern text-white your-order">
-
-									<div class="pricing-table-header" style="margin-top: -100px;">
-
-										<h2 class="text-white">Your order</h2>
-
-									</div><!-- /.pricing-table-head -->
-
-									<div class="pricing-table-body" style="margin-top: -50px; margin-bottom: 30px;">
-
-										<div style="margin: auto; position: relative;
-							text-align: center;">
-											<img class="card-front-small" src="queue_card_assets/queuecardcard.png"
-												alt="Card Outline"
-												style="margin: auto; position: relative; border-radius: 15px; border: solid white;">
-										</div>
-										<div style="margin: auto; position: relative;
-							text-align: center;">
-											<img class="card-back-small" src="queue_card_assets/queuecardcard.png"
-												alt="Card Outline"
-												style="margin: auto; position: relative; border-radius: 15px; border: solid white;">
-										</div>
-										<p class="order-quantity" class="text-white" style="margin: 0px;">500 cards</p>
-										<p class="text-white e-store" style="margin: 0px;"></p>
-										<p class="text-white built-in-payments" style="margin: 0px;"></p>
-										<p class="text-white custom-card-design" style="margin: 0px;"></p>
-
-									</div><!-- /.pricing-table-body -->
-
-								</div><!-- /.pricing-table -->
-
-							</div><!-- /.col-lg-4 col-md-12 -->
-
-							<div class="lqd-column col-lg-6 col-md-12">
-
-								<div class="pricing-table pricing-table-modern text-white">
-
-									<div class="lqd-promo-dynamic-shape" data-dynamic-shape="true">
-										<svg class="scene" width="100%" height="100%" fill="rgba(0, 0, 0, 0.05)"
-											viewbox="0 0 650 650">
-											<path
-												d="M717.349,515.468 C693.326,625.562 595.298,708.000 478.000,708.000 C351.735,708.000 247.793,612.479 234.460,489.760 C104.042,484.237 -0.000,376.777 -0.000,245.000 C-0.000,109.690 109.690,-0.000 245.000,-0.000 C330.697,-0.000 406.103,44.009 449.889,110.648 C481.742,95.493 517.376,87.000 555.000,87.000 C690.310,87.000 800.000,196.690 800.000,332.000 C800.000,405.029 768.036,470.582 717.349,515.468 Z"
-												pathdata:id="
-							M717.349,515.468 C693.326,625.562 595.298,708.000 478.000,708.000 C351.735,708.000 247.793,612.479 234.460,489.760 C104.042,484.237 -0.000,376.777 -0.000,245.000 C-0.000,109.690 109.690,-0.000 245.000,-0.000 C330.697,-0.000 406.103,44.009 449.889,110.648 C481.742,95.493 517.376,87.000 555.000,87.000 C690.310,87.000 800.000,196.690 800.000,332.000 C800.000,405.029 768.036,470.582 717.349,515.468 Z;
-							M565.540,489.760 C552.207,612.479 448.265,708.000 322.000,708.000 C204.702,708.000 106.675,625.562 82.651,515.468 C31.964,470.582 -0.000,405.029 -0.000,332.000 C-0.000,196.690 109.690,87.000 245.000,87.000 C282.624,87.000 318.258,95.493 350.111,110.649 C393.897,44.009 469.303,0.000 555.000,0.000 C690.310,0.000 800.000,109.690 800.000,245.000 C800.000,376.777 695.958,484.238 565.540,489.760 Z;
-							M565.540,489.760 C552.207,612.479 448.265,708.000 322.000,708.000 C204.702,708.000 106.675,625.562 82.651,515.468 C31.964,470.582 -0.000,405.029 -0.000,332.000 C-0.000,196.690 109.690,87.000 245.000,87.000 C282.624,87.000 318.258,95.493 350.111,110.649 C393.897,44.009 469.303,0.000 555.000,0.000 C690.310,0.000 800.000,109.690 800.000,245.000 C800.000,376.777 695.958,484.238 565.540,489.760 Z" />
-										</svg>
-									</div><!-- /.lqd-promo-dynamic-shape -->
-
-
-									<div class="pricing-table-header">
-
-										<h2 class="text-white">
-											Brill!<br> Now for the legals.
-										</h2>
-										<div>
-											<h4 class="text-white">I have read and agreed to the
-												<a href="/terms_and_conditions" target="_blank">
-													<span style="text-decoration: underline; color: #d54be7;"><br>
-														Terms and Conditions</span>&nbsp
-												</a>
-												<input type="checkbox" id="terms" onchange="termsAgreed()">
-
-											</h4>
-										</div>
-
-									</div><!-- /.pricing-table-head -->
-								</div><!-- /.pricing-table-body -->
-
-							</div><!-- /.pricing-table -->
-						</div><!-- /.col-lg-4 col-md-12 -->
-
-					</div><!-- /.row -->
-				</div><!-- /.container -->
-			</section>
-			<section class="vc_row fullheight d-flex flex-wrap align-items-center py-5 py-md-0 bg-gigas">
-				<div class="lqd-particles-bg-wrap">
-
-					<div class="ld-particles-container">
 						<div class="ld-particles-inner" id="ld-particles-8" data-particles="true"
 							data-particles-options='{"particles":{"number":{"value":6},"color":{"value":["#ffb739","#fe045e","#3de4a3","#aa57ff"]},"shape":{"type":["circle"]},"opacity":{"random":true,"anim":{"enable":true,"opacity_min":0.6,"speed":1,"sync":true}},"size":{"value":3,"random":true,"anim":{"enable":true,"size_min":2,"speed":1}},"move":{"out_mode":"out"}},"interactivity":[]}'>
 						</div>
@@ -635,10 +555,10 @@
 
 								<div class="pricing-table pricing-table-modern text-white your-order">
 
-									<div class="pricing-table-header" style="margin-top: -100px;">
+									<div class="pricing-table-header" style="margin-top: -50px;">
 
 										<h2 class=" text-white">
-											Almost there!<br>How's it all looking?
+											Your order
 										</h2>
 
 									</div><!-- /.pricing-table-head -->
@@ -688,7 +608,9 @@
 								<div class="pricing-table pricing-table-modern text-white">
 
 									<div class="pricing-table-header">
-
+										<h2 class=" text-white">
+											Almost there!<br>How's it all looking?
+										</h2>
 										<h4 class="text-white">Redo
 											<a href="#Section-1" style="color: #d54be7;">
 												front</a> or
@@ -772,7 +694,16 @@
 												placeholder="Confirm Password"
 												style="text-align: center; border: solid; border-radius: 20px; border-color: white; background-color: transparent; width: 18em; color:white;">
 										</div>
+										<div>
+											<p class="text-white">I have read and agreed to the
+												<a href="/terms_and_conditions" target="_blank">
+													<span style="text-decoration: underline; color: #d54be7;"><br>
+														Terms and Conditions</span>&nbsp
+												</a>
+												<input type="checkbox" id="terms" onchange="termsAgreed()">
 
+											</p>
+										</div>
 									</form>
 								</div>
 
@@ -784,7 +715,8 @@
 									<p class="text-white"
 										style="margin-top: auto; margin-bottom: auto; text-align: center;">
 										These are the
-										details you'll use to log in to our platform, make changes to the content on
+										details you'll use to log in to our platform, make changes to the
+										content on
 										your
 										cards and manage your account.</p>
 								</div>
@@ -841,7 +773,8 @@
 								<div style="width: 100%; margin: auto; text-align: center;">
 
 									<div>
-										<h5 class="text-white" style="margin-top: 5px; margin-bottom: 0;">Billing</h5>
+										<h5 class="text-white" style="margin-top: 5px; margin-bottom: 0;">
+											Billing</h5>
 
 										<form style="text-align: center; position: relative; z-index: 0; width: 100%;">
 											<div style="padding: 5px;">
@@ -868,7 +801,8 @@
 										</form>
 									</div>
 									<div>
-										<h5 class="text-white" style="margin-top: 5px; margin-bottom: 0;">Shipping</h5>
+										<h5 class="text-white" style="margin-top: 5px; margin-bottom: 0;">
+											Shipping</h5>
 
 										<form style=" text-align: center; position: relative; z-index: 0; width: 100%;">
 											<div style="padding: 5px;">
@@ -983,7 +917,10 @@
 													<i class="fa fa-google text-white"></i> Pay
 												</h3>
 											</a>
-											<p id="terms-warning" class="text-white"></p>
+											<p id="terms-warning" class="text-white">You must agree to the <a
+													href='#Section-7'>Terms and Conditions </a>before proceeding
+												with
+												your payment.</p>
 
 										</div>
 									</div>
@@ -1043,17 +980,21 @@
 
 									<div style="margin-top: 20px;">
 										<h4 class="text-white"
-											style="margin-top: auto; margin-bottom: auto; text-align: center;">Your
-											payment was accepted.<br>You've got some Queue Cards on the way!</h4>
+											style="margin-top: auto; margin-bottom: auto; text-align: center;">
+											Your
+											payment was accepted.<br>You've got some Queue Cards on the way!
+										</h4>
 									</div>
 									<div style="margin-top: 20px;">
 										<h4 class="text-white"
-											style="margin-top: auto; margin-bottom: auto; text-align: center;">Check
+											style="margin-top: auto; margin-bottom: auto; text-align: center;">
+											Check
 											your email for confirmation!</h4>
 									</div>
 									<div style="margin-top: 20px;">
 										<h4 class="text-white"
-											style="margin-top: auto; margin-bottom: auto; text-align: center;">Thanks
+											style="margin-top: auto; margin-bottom: auto; text-align: center;">
+											Thanks
 											for your order!<br> Order No: 123456
 									</div>
 
