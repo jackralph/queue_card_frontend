@@ -29540,13 +29540,15 @@ body.search .no-results .search-form input[type="submit"] {
     height: 1.5em;
   }
   .sign-up h2 {
-    font-size: 1.2em;
+    font-size: 1.0em;
+    margin-top: -5px;
   }
   .sign-up img {
     height: 8em;
   }
   .sign-up h4 {
     font-size: 0.8em;
+    margin: 5px;
   }
   .your-order p {
     font-size: 0.8em;
@@ -29556,7 +29558,7 @@ body.search .no-results .search-form input[type="submit"] {
     height: 5em;
   }
   .small-button {
-    font-size: 0.8em;
+    font-size: 0.6em;
     padding: 5px;
   }
 
