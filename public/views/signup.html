@@ -105,7 +105,7 @@
 										top: 50%;
 										left: 50%;
 										transform: translate(-50%, -50%);">
-										<h3 id="upload-message-front" class="text-white">
+										<h3 id="upload-message-front" class="text-white" style="margin: 0;">
 											Click to Upload
 										</h3>
 
@@ -125,7 +125,7 @@
 									style="margin-top: auto; margin-bottom: auto; text-align: center;">Upload the <span
 										style="text-decoration: underline;">front</span>
 									of your card. <br>
-									We recommend a size of ??? x ??? pixels.</h4>
+									We recommend a size of 2135 x 1400 pixels.</h4>
 								<div class="tooltip" style="width: 100%; margin: auto; text-align: center;">
 									<h5 class="text-white">No design? <i class="fa fa-question-circle text-white"></i>
 									</h5>
@@ -233,7 +233,7 @@
 										style="margin: auto; cursor: pointer;">
 									<div
 										style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-										<h3 id="upload-message-back" class="text-white">
+										<h3 id="upload-message-back" class="text-white" style="margin: 0;">
 											Click to Upload
 										</h3>
 									</div>
@@ -252,7 +252,18 @@
 									style="margin-top: auto; margin-bottom: auto; text-align: center;">Upload
 									the <span style="text-decoration: underline;">back</span>
 									of your card. <br>
-									We recommend a size of ??? x ??? pixels.</h4>
+									We recommend a size of 2135 x 1400 pixels.</h4>
+								<div class="tooltip" style="width: 100%; margin: auto; text-align: center;">
+									<h5 class="text-white">No design? <i class="fa fa-question-circle text-white"></i>
+									</h5>
+									<span class="tooltiptext" style="width: 75%; padding: 5px;">Click <a
+											href="#Section-5"
+											style="color: #d54be7; text-decoration: underline;">here</a>
+										to skip this
+										part. Don't stress! We'll be in contact after your order is placed to discuss
+										your
+										design.</span>
+								</div>
 							</div>
 						</div>
 					</div><!-- /.row -->
@@ -917,11 +928,6 @@
 													<i class="fa fa-google text-white"></i> Pay
 												</h3>
 											</a>
-											<p id="terms-warning" class="text-white">You must agree to the <a
-													href='#Section-7'>Terms and Conditions </a>before proceeding
-												with
-												your payment.</p>
-
 										</div>
 									</div>
 								</div>
@@ -1149,25 +1155,6 @@
 					costToday -= 15;
 					totalPrice.innerHTML = `£${costToday} due today <small>inc. shipping</small>`
 				}
-			}
-		}
-
-		const termsAgreed = () => {
-			const termsWarning = document.getElementById("terms-warning");
-			const agreed = document.getElementById("terms").checked;
-			if (!agreed) {
-				termsWarning.innerHTML = "You must agree to the <a href='#Section-7'>Terms and Conditions </a>before proceeding with your payment."
-			} else {
-				termsWarning.innerHTML = ""
-			}
-		}
-
-		const handlePayment = () => {
-			const termsAgreedCheck = document.getElementById("terms");
-			if (termsAgreedCheck.checked) {
-				console.log("proceed with payment")
-			} else {
-				alert("You must agree to the terms and conditions")
 			}
 		}
 	</script>
