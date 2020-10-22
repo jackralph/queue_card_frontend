@@ -29583,7 +29583,9 @@ body.search .no-results .search-form input[type="submit"] {
 }
 
 @media screen and (max-width: 320px) {
-
+  .navbar-brand img {
+    height: 1em;
+  }
   .your-order img {
     display: none;
   }
